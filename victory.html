@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Victory — XSS CTF</title>
+<style>
+body{margin:0;display:flex;align-items:center;justify-content:center;height:100vh;background:linear-gradient(120deg,#05233a,#012031);color:#e8fbff;font-family:Inter,system-ui,Segoe UI,Roboto}
+.card{background:rgba(255,255,255,0.03);padding:28px;border-radius:12px;width:680px}
+h1{margin:0 0 6px}
+.stat{display:flex;gap:18px;margin-top:12px}
+.stat div{background:rgba(255,255,255,0.02);padding:12px;border-radius:8px}
+.actions{margin-top:18px;display:flex;gap:10px}
+button{padding:10px;border-radius:8px;border:0;background:#06b6d4;color:#023;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="card">
+<h1>🏆 Congratulations!</h1>
+<p id="message">You completed the XSS CTF. Well done.</p>
+
+
+<div class="stat">
+<div>
+<div>Completion Time</div>
+<div id="timeVal">--</div>
+</div>
+<div>
+<div>Final Score</div>
+<div id="scoreVal">--</div>
+</div>
+<div>
+<div>Rank</div>
+<div id="rankVal">--</div>
+</div>
+</div>
+<div class="actions">
+<button id="toDashboard">View Dashboard</button>
+<button id="homeBtn">Home</button>
+</div>
+</div>
+
+
+<script>
+const profile = JSON.parse(localStorage.getItem('xssctf_profile')||'{}');
+if(!profile.username) location.href='login.html';
+const finish = JSON.parse(localStorage.getItem('xssctf_finish_'+profile.username)||'{}');
+document.getElementById('message').textContent = `Well done, ${profile.username}!`;
+document.getElementById('timeVal').textContent = finish.time ? new Date(finish.time).toLocaleString() : '—';
+document.getElementById('scoreVal').textContent = finish.score || '--';
+
+
+// compute rank by comparing finish times
+const finishKeys = Object.keys(localStorage).filter(k=>k.startsWith('xssctf_finish_'));
+const ranks = finishKeys.map(k=>JSON.parse(localStorage.getItem(k))).sort((a,b)=>a.time - b.time);
+const rank = ranks.findIndex(r=>r && r.user===profile.username) + 1;
+document.getElementById('rankVal').textContent = rank || '--';
+
+
+document.getElementById('toDashboard').addEventListener('click', ()=> location.href='dashboard.html');
+document.getElementById('homeBtn').addEventListener('click', ()=> location.href='login.html');
+</script>
+</body>
+</html>

@@ -1,0 +1,222 @@
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Game — XSS CTF</title>
+<style>
+:root{--bg:#041226;--card:#071827;--accent:#06b6d4;--muted:#9aaec3}
+*{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Roboto}
+body{margin:0;background:linear-gradient(180deg,#012031,#041226);color:#eaf6fb;min-height:100vh}
+.layout{display:grid;grid-template-columns:260px 1fr 320px;gap:18px;padding:18px}
+.panel{background:rgba(255,255,255,0.02);border-radius:10px;padding:14px}
+.player-box{display:flex;flex-direction:column;gap:8px}
+.flag-input{display:flex;gap:8px;margin-top:12px}
+input.flag{flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit}
+button{padding:10px;border-radius:8px;border:0;background:var(--accent);color:#002;cursor:pointer}
+.challenge-frame{background:#091726;border-radius:8px;padding:12px;min-height:260px}
+.timer{font-size:20px;font-weight:700}
+.leaderboard{display:flex;flex-direction:column;gap:8px}
+.lb-item{display:flex;justify-content:space-between;padding:8px;background:rgba(255,255,255,0.01);border-radius:6px}
+.hint{font-size:13px;color:var(--muted);margin-top:8px}
+</style>
+</head>
+<body>
+<div class="layout">
+<aside class="panel player-box">
+<div><strong id="playerName">Player</strong></div>
+<div>Step: <span id="currentStep">1</span>/<span id="totalSteps">6</span></div>
+<div>Score: <span id="score">0</span></div>
+<div class="hint">Collect flags to advance. Submit full flag strings to progress.</div>
+<div style="margin-top:auto">Time left: <div class="timer" id="gameTimer">60:00</div></div>
+</aside>
+
+
+<main class="panel">
+<h3 id="challengeTitle">Step 1 — Reflected XSS</h3>
+<p id="challengeDesc" class="hint">Exploit the reflected search to trigger an alert with the specific flag code.</p>
+
+<div class="challenge-frame" id="vulnArea">
+<!-- Vulnerable demo: simple search endpoint imitation -->
+<form id="vulnForm" action="#" onsubmit="return false;">
+<label>Search the site:</label>
+<input id="vulnSearch" type="text" placeholder="search..." style="width:70%;padding:8px;border-radius:6px;border:0;margin-top:8px" />
+<button id="vulnBtn" style="margin-left:8px;padding:8px;border-radius:6px">Search</button>
+</form>
+
+
+<div id="vulnOutput" style="margin-top:12px;background:#02121b;padding:12px;border-radius:8px;color:#bfeffc">Results will appear here</div>
+</div>
+
+
+<div class="flag-input">
+<input type="text" id="flagInput" class="flag" placeholder="Enter flag (e.g. FLAG{...})" />
+<button id="submitFlag">Submit Flag</button>
+</div>
+
+
+<div class="hint">Hints: Use reflected XSS to make the page show <code>FLAG{STEP1_ABC}</code> in an alert or in the DOM.</div>
+</main>
+
+
+<aside class="panel">
+<h4>Leaderboard</h4>
+<div class="leaderboard" id="leaderboard"></div>
+<hr />
+<div>Collected Flags:</div>
+<ul id="collectedFlags"></ul>
+</aside>
+</div>
+<script>
+// Simple game state
+const profile = JSON.parse(localStorage.getItem('xssctf_profile') || '{}');
+if(!profile.username) location.href='login.html';
+
+
+const totalSteps = 6; // customize
+const FLAGS = {
+1: 'FLAG{STEP1_DEMO}',
+2: 'FLAG{STEP2_REFLECTED_COOKIE}',
+3: 'FLAG{STEP3_STORED}',
+4: 'FLAG{STEP4_DOM}',
+5: 'FLAG{STEP5_CSP_BYPASS}',
+6: 'FLAG{STEP6_FINAL}'
+};
+
+
+// UI refs
+const playerName = document.getElementById('playerName');
+const currentStepEl = document.getElementById('currentStep');
+const totalStepsEl = document.getElementById('totalSteps');
+const scoreEl = document.getElementById('score');
+const gameTimerEl = document.getElementById('gameTimer');
+const vulnOutput = document.getElementById('vulnOutput');
+const vulnForm = document.getElementById('vulnForm');
+const vulnSearch = document.getElementById('vulnSearch');
+const flagInput = document.getElementById('flagInput');
+const submitFlag = document.getElementById('submitFlag');
+const leaderboard = document.getElementById('leaderboard');
+const collectedFlags = document.getElementById('collectedFlags');
+const challengeTitle = document.getElementById('challengeTitle');
+const challengeDesc = document.getElementById('challengeDesc');
+
+
+playerName.textContent = profile.username;
+totalStepsEl.textContent = totalSteps;
+
+// use localStorage to store per-player progress
+function loadProg(){
+const p = JSON.parse(localStorage.getItem('xssctf_progress_' + profile.username) || '{}');
+return { step: p.step || 1, score: p.score || 0, flags: p.flags || [] };
+}
+function saveProg(s){ localStorage.setItem('xssctf_progress_' + profile.username, JSON.stringify(s)); }
+
+
+let prog = loadProg();
+updateUI();
+
+
+// simple timer: 1 hour from game start or from now
+const START = parseInt(localStorage.getItem('xssctf_game_start') || Date.now());
+const GAME_LENGTH = 60*60; // seconds
+function tick(){
+const elapsed = Math.floor((Date.now() - START)/1000);
+const left = Math.max(0, GAME_LENGTH - elapsed);
+const mm = String(Math.floor(left/60)).padStart(2,'0');
+const ss = String(left%60).padStart(2,'0');
+gameTimerEl.textContent = mm+':'+ss;
+if(left<=0){ endGame(); }
+}
+setInterval(tick,1000);
+
+
+// vulnerable search: reflects input into DOM without escaping (intentional)
+vulnForm.addEventListener('submit', ()=>{
+// intentionally vulnerable reflection
+const q = vulnSearch.value;
+// simulate server reflected response
+vulnOutput.innerHTML = `Search results for: ${q}`; // <-- vulnerable: no escaping
+return false;
+});
+
+// fake stored XSS for later steps
+// stored comments saved in localStorage 'xssctf_comments'
+
+
+submitFlag.addEventListener('click', ()=>{
+const val = flagInput.value.trim();
+if(!val){ alert('Type a flag'); return; }
+const expected = FLAGS[prog.step];
+if(val === expected){
+prog.flags.push(val); prog.step = Math.min(totalSteps, prog.step+1); prog.score += 1000 - prog.step*10; saveProg(prog); updateUI();
+alert('Correct! Flag accepted. Proceeding to next step.');
+// if finished
+if(prog.step>totalSteps){ finishNow(); }
+} else {
+alert('Invalid flag. Try again.');
+}
+flagInput.value='';
+});
+
+
+function updateUI(){
+currentStepEl.textContent = prog.step;
+scoreEl.textContent = prog.score;
+collectedFlags.innerHTML = prog.flags.map(f=>`<li>${escapeHtml(f)}</li>`).join('') || '<li>—</li>';
+// show challenge text depending on step
+challengeTitle.textContent = `Step ${prog.step} — ${stepTitle(prog.step)}`;
+challengeDesc.textContent = stepDesc(prog.step);
+// adjust vuln area for some steps
+if(prog.step===1){ vulnOutput.innerHTML = 'Search results will appear here'; }
+if(prog.step===3){ renderStoredComments(); }
+}
+function stepTitle(n){
+return ['Reflected XSS','Reflected cookie slurp','Stored XSS demo','DOM XSS','CSP bypass demo','Final challenge'][n-1] || 'Challenge';
+}
+function stepDesc(n){
+return ['Trigger a reflected XSS to reveal the flag','Perform a reflected exploit that prints the flag to DOM or alert','Post a comment that triggers XSS and reveals the flag','Exploit DOM manipulation to reveal flag','Bypass a restrictive CSP to reveal the flag','Final multi-stage challenge to get the final flag'][n-1] || '';
+}
+
+
+function escapeHtml(s){ return (s+'').replace(/[&<>"']/g, ch=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch])); }
+
+
+// Stored comments functionality for step 3
+function renderStoredComments(){
+const comments = JSON.parse(localStorage.getItem('xssctf_comments') || '[]');
+const el = document.createElement('div');
+el.innerHTML = '<strong>Comments:</strong>' + comments.map(c=>`<div style="margin-top:6px;padding:6px;background:#021523;border-radius:6px">${c}</div>`).join('');
+vulnOutput.innerHTML = '';
+vulnOutput.appendChild(el);
+// intentionally do not escape comments until player advances
+}
+
+
+// leaderboard (reads all players' progress keys in localStorage)
+function renderLB(){
+const keys = Object.keys(localStorage).filter(k=>k.startsWith('xssctf_progress_'));
+const rows = keys.map(k=>({user:k.replace('xssctf_progress_',''), prog: JSON.parse(localStorage.getItem(k)) }));
+rows.sort((a,b)=> (b.prog.score||0) - (a.prog.score||0));
+leaderboard.innerHTML = rows.map(r=>`<div class="lb-item"><div>${escapeHtml(r.user)}</div><div>${(r.prog.step||1)-1} / ${totalSteps}</div></div>`).join('') || '<div class="small">No players yet</div>';
+}
+
+
+function finishNow(){
+// mark finish time
+const finish = {user:profile.username, time:Date.now(), score:prog.score};
+localStorage.setItem('xssctf_finish_'+profile.username, JSON.stringify(finish));
+// redirect to victory
+location.href='victory.html';
+}
+
+
+function endGame(){
+// timer expired — compute nearest finisher
+location.href='dashboard.html';
+}
+// periodic UI updates
+setInterval(()=>{ renderLB(); },3000);
+
+
+</script>
+</body>
+</html>

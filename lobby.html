@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Lobby — XSS CTF</title>
+<style>
+:root{--bg:#071022;--panel:#071827;--accent:#f97316;--muted:#90a4b7}
+*{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Roboto}
+body{margin:0;background:linear-gradient(180deg,#041028,#071022);color:#e7eef8;min-height:100vh;display:flex;align-items:center;justify-content:center}
+.wrap{width:900px;padding:28px;background:rgba(255,255,255,0.02);border-radius:12px}
+header{display:flex;align-items:center;justify-content:space-between}
+h2{margin:0}
+.players{display:flex;gap:12px;margin-top:18px}
+.player{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px;min-width:150px;text-align:center}
+.actions{margin-top:18px;display:flex;gap:10px}
+button{padding:10px 14px;border-radius:8px;border:0;background:var(--accent);color:#fff;cursor:pointer}
+.ready{background:green}
+.count{font-size:36px;margin-top:18px;text-align:center}
+.small{color:var(--muted);font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+<div>
+<h2>Lobby — XSS Battle Arena</h2>
+<div class="small" id="welcome">Welcome — </div>
+</div>
+<div>
+<button id="leaveBtn">Leave</button>
+</div>
+</header>
+
+
+<div class="players" id="players"></div>
+
+
+<div class="actions">
+<button id="readyBtn">I'm Ready</button>
+<button id="startBtn" style="background:rgba(255,255,255,0.04);color:var(--muted)" disabled>Start (host)</button>
+<div style="margin-left:auto" class="small">Host can force start — Countdown is 30s</div>
+</div>
+
+
+<div class="count" id="countdown" style="display:none">30</div>
+</div>
+
+
+<script>
+// Use BroadcastChannel to simulate real-time in same browser (multiple tabs)
+const bc = new BroadcastChannel('xssctf_channel');
+const profile = JSON.parse(localStorage.getItem('xssctf_profile') || '{}');
+if(!profile.username) location.href = 'login.html';
+
+
+const playersDiv = document.getElementById('players');
+const welcome = document.getElementById('welcome');
+const readyBtn = document.getElementById('readyBtn');
+const startBtn = document.getElementById('startBtn');
+const countdownEl = document.getElementById('countdown');
+const leaveBtn = document.getElementById('leaveBtn');
+
+
+welcome.textContent = `Welcome — ${profile.username}`;
+
+
+function getState(){
+return JSON.parse(localStorage.getItem('xssctf_state') || '[]');
+}
+function setState(arr){ localStorage.setItem('xssctf_state', JSON.stringify(arr)); }
+
+
+function render(){
+const list = getState();
+playersDiv.innerHTML = '';
+list.forEach(p=>{
+const el = document.createElement('div'); el.className='player';
+el.innerHTML = `<strong>${escapeHtml(p.username)}</strong><div class="small">${p.ready?'<span style="color:lime">Ready</span>':'Not ready'}</div>`;
+playersDiv.appendChild(el);
+});
+startBtn.disabled = !(list[0] && list[0].username === profile.username);
+}
+function escapeHtml(s){ return (s+'').replace(/[&<>"']/g, ch=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch])); }
+
+
+// join lobby
+const state = getState();
+if(!state.find(p=>p.username===profile.username)){
+state.push({ username: profile.username, ready: false, joinedAt: Date.now() });
+setState(state);
+bc.postMessage({type:'joined',user:profile.username});
+}
+render();
+
+
+readyBtn.addEventListener('click', ()=>{
+const arr = getState().map(p=> p.username===profile.username? {...p, ready:true}:p );
+setState(arr); bc.postMessage({type:'ready',user:profile.username}); render();
+});
+
+
+startBtn.addEventListener('click', ()=>{
+// host starts countdown
+bc.postMessage({type:'start_countdown'});
+beginCountdown(30);
+});
+
+
+leaveBtn.addEventListener('click', ()=>{
+const arr = getState().filter(p=>p.username!==profile.username);
+setState(arr); bc.postMessage({type:'left',user:profile.username}); location.href='login.html';
+});
+bc.onmessage = ev=>{
+const d = ev.data;
+if(d?.type==='joined' || d?.type==='ready' || d?.type==='left') render();
+if(d?.type==='start_countdown') beginCountdown(30);
+if(d?.type==='start_game'){
+// store game config and redirect
+localStorage.setItem('xssctf_game_start', Date.now());
+location.href='game.html';
+}
+}
+
+
+let countdownTimer=null;
+function beginCountdown(sec){
+countdownEl.style.display='block';
+let t=sec; countdownEl.textContent = t;
+if(countdownTimer) clearInterval(countdownTimer);
+countdownTimer = setInterval(()=>{
+t--; countdownEl.textContent = t;
+if(t<=0){ clearInterval(countdownTimer); countdownEl.style.display='none'; bc.postMessage({type:'start_game'}); }
+},1000);
+}
+
+
+// cleanup on unload
+window.addEventListener('beforeunload', ()=>{
+const arr = getState().filter(p=>p.username!==profile.username);
+setState(arr); bc.postMessage({type:'left',user:profile.username});
+});
+</script>
+</body>
+</html>

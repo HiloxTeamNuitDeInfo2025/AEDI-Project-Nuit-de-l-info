@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Dashboard — XSS CTF</title>
+        <style>
+            body{margin:0;font-family:Inter,system-ui,Segoe UI,Roboto;background:linear-gradient(180deg,#031221,#02101a);color:#e9fbff}
+            .wrap{padding:24px;max-width:1100px;margin:0 auto}
+            h1{margin:0 0 8px}
+            .grid{display:grid;grid-template-columns:1fr 420px;gap:18px}
+            .panel{background:rgba(255,255,255,0.02);padding:12px;border-radius:10px}
+            table{width:100%;border-collapse:collapse}
+            th,td{padding:8px;text-align:left;border-bottom:1px solid rgba(255,255,255,0.03)}
+        </style>
+    </head>
+    <body>
+        <div class="wrap">
+        <h1>XSS CTF — Dashboard</h1>
+        <div class="grid">
+        <div class="panel">
+        <h3>Leaderboard</h3>
+        <table id="leaders">
+            <thead>
+                <tr>
+                    <th>Rank</th>
+                    <th>Player</th>
+                    <th>Flags</th>
+                    <th>Score</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+            </tbody>
+        </table>
+        </div>
+
+
+        <div class="panel">
+        <h3>Stats</h3>
+        <div id="stats"></div>
+        </div>
+        </div>
+        </div>
+        <script>
+            // Build leaderboard from finish and progress info
+            const totalSteps = 6;
+            const progressKeys = Object.keys(localStorage).filter(k=>k.startsWith('xssctf_progress_'));
+            const players = progressKeys.map(k=>({ user:k.replace('xssctf_progress_',''), prog: JSON.parse(localStorage.getItem(k)) }));
+            const finishKeys = Object.keys(localStorage).filter(k=>k.startsWith('xssctf_finish_'));
+            const finishes = finishKeys.map(k=>JSON.parse(localStorage.getItem(k)));
+
+
+            // sort by step achieved then score then finish time
+            players.sort((a,b)=>{
+            const aStep=(a.prog.step||1)-1, bStep=(b.prog.step||1)-1;
+            if(aStep!==bStep) return bStep - aStep;
+            return (b.prog.score||0) - (a.prog.score||0);
+            });
+
+
+            const tbody = document.querySelector('#leaders tbody');
+            players.forEach((p,i)=>{
+            const tr=document.createElement('tr');
+            const finish = finishes.find(f=>f.user===p.user);
+            tr.innerHTML = `<td>${i+1}</td><td>${escapeHtml(p.user)}</td><td>${(p.prog.flags||[]).length}/${totalSteps}</td><td>${p.prog.score||0}</td><td>${finish? new Date(finish.time).toLocaleString() : '—'}</td>`;
+            tbody.appendChild(tr);
+            });
+
+
+            function escapeHtml(s){ return (s+'').replace(/[&<>"']/g, ch=>({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[ch])); }
+
+
+            // basic stats
+            const stats = document.getElementById('stats');
+            stats.innerHTML = `<div>Players: ${players.length}</div><div>Finishers: ${finishes.length}</div>`;
+        </script>
+    </body>
+</html>
