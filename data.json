@@ -1,0 +1,29 @@
+{
+  "users": {
+    "imen": {
+      "username": "imen",
+      "createdAt": 1764886826474
+    },
+    "dfqdfqd": {
+      "username": "dfqdfqd",
+      "createdAt": 1764888995624
+    }
+  },
+  "progress": {
+    "imen": {
+      "step": 1,
+      "score": 0,
+      "flags": [],
+      "joinedAt": 1764886826474
+    },
+    "dfqdfqd": {
+      "step": 1,
+      "score": 0,
+      "flags": [],
+      "joinedAt": 1764888995624
+    }
+  },
+  "finishes": {},
+  "comments": [],
+  "lobby": []
+}

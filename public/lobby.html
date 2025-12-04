@@ -117,8 +117,8 @@ if(d?.type==='joined' || d?.type==='ready' || d?.type==='left') render();
 if(d?.type==='start_countdown') beginCountdown(30);
 if(d?.type==='start_game'){
 // store game config and redirect
-localStorage.setItem('xssctf_game_start', Date.now());
-location.href='game.html';
+    localStorage.setItem('xssctf_game_start', Date.now());
+    location.href='game.html';
 }
 }
 
