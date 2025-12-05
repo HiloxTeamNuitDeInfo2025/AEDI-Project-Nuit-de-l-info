@@ -1,4 +1,4 @@
-# 🎮 XSS BATTLE ARENA - Nuit de l'Info 2025
+﻿# 🎮 XSS BATTLE ARENA - Nuit de l'Info 2025
 
 ```
 ╔═══════════════════════════════════════════════════════════════╗
@@ -15,7 +15,7 @@
 
 ## AEDI Challenge: "La faille la plus maligne"
 
-**XSSHILOX** est une plateforme d'entraînement gamifiée au XSS (Cross-Site Scripting) avec une esthétique rétro "Red Team".
+**HackMatrixHILOX** est une plateforme d'entraînement gamifiée au XSS (Cross-Site Scripting) avec une esthétique rétro "Red Team".
 
 ### 🎯 Objectif
 

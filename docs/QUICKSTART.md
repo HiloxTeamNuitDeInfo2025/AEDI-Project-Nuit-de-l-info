@@ -1,4 +1,4 @@
-# 🚀 Guide de Démarrage Rapide - XSS Battle Arena
+# 🚀 Guide de Démarrage Rapide - HackMatrixHILOX
 
 ## ⚡ Lancement Rapide
 
