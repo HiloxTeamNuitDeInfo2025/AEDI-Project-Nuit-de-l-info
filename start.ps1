@@ -1,9 +1,9 @@
-# XSSHILOX - Startup Script
+﻿# HackMatrixHILOX - Startup Script
 # Démarre automatiquement le backend et le frontend
 
 Write-Host ""
 Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Red
-Write-Host "    🚨 XSSHILOX - Red Team Edition 🚨    " -ForegroundColor Red
+Write-Host "    🚨 HackMatrixHILOX - Red Team Edition 🚨    " -ForegroundColor Red
 Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Red
 Write-Host ""
 Write-Host "📦 Vérification des dépendances..." -ForegroundColor Yellow

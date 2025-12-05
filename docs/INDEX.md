@@ -1,6 +1,6 @@
-# 📚 Documentation XSSHILOX
+# 📚 Documentation HackMatrixHILOX
 
-Bienvenue dans la documentation complète de **XSSHILOX** - Red Team Edition.
+Bienvenue dans la documentation complète de **HackMatrixHILOX** - Red Team Edition.
 
 ---
 

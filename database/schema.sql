@@ -1,4 +1,4 @@
--- XSSHILOX Database Schema
+-- HackMatrixHILOX Database Schema
 -- SQLite Database for XSS CTF Platform
 
 -- Users table

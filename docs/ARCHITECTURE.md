@@ -1,8 +1,8 @@
-# 🏗️ Architecture XSSHILOX
+# 🏗️ Architecture HackMatrixHILOX
 
 ## Vue d'Ensemble
 
-XSSHILOX est une application full-stack avec :
+HackMatrixHILOX est une application full-stack avec :
 
 - **Backend** : Node.js + Express + SQLite + Socket.IO
 - **Frontend** : Next.js 15 + React + Tailwind CSS v4
@@ -14,7 +14,7 @@ XSSHILOX est une application full-stack avec :
 ## 📁 Structure du Projet
 
 ```
-XSSHILOX/
+HackMatrixHILOX/
 │
 ├── 📂 backend/
 │   ├── server.js              # Serveur Express principal
@@ -24,7 +24,7 @@ XSSHILOX/
 │   └── 📂 database/
 │       ├── db.js              # Gestionnaire SQLite
 │       ├── schema.sql         # Schéma de la DB
-│       └── xsshilox.db        # Base de données (auto-créée)
+│       └── HackMatrixHILOX.db        # Base de données (auto-créée)
 │
 ├── 📂 frontend/
 │   ├── package.json           # Dépendances frontend

@@ -1,4 +1,4 @@
-# 🚨 XSSHILOX - Défi AEDI "La Faille la Plus Maligne"
+# 🚨 HackMatrixHILOX - Défi AEDI "La Faille la Plus Maligne"
 
 ## Équipe Hilox - Nuit de l'Info 2025
 
@@ -6,7 +6,7 @@
 
 ## 📋 Résumé du Projet
 
-**XSSHILOX** est une plateforme d'entraînement gamifiée aux vulnérabilités XSS (Cross-Site Scripting) avec une esthétique rétro "Red Team". Le projet démontre de manière interactive et pédagogique comment exploiter et se protéger contre les failles XSS.
+**HackMatrixHILOX** est une plateforme d'entraînement gamifiée aux vulnérabilités XSS (Cross-Site Scripting) avec une esthétique rétro "Red Team". Le projet démontre de manière interactive et pédagogique comment exploiter et se protéger contre les failles XSS.
 
 ### 🎯 Objectif du Défi
 
@@ -178,7 +178,7 @@ const cleanHTML = DOMPurify.sanitize(dirtyHTML);
 
 **Équipe Hilox**
 
-- Projet : XSSHILOX
+- Projet : HackMatrixHILOX
 - Événement : Nuit de l'Info 2025
 - Défi : AEDI - "La faille la plus maligne"
 

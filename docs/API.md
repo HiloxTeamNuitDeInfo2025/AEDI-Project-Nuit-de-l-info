@@ -1,6 +1,6 @@
-# 🔌 API Documentation - XSSHILOX
+# 🔌 API Documentation - HackMatrixHILOX
 
-Documentation complète de l'API REST du backend XSSHILOX.
+Documentation complète de l'API REST du backend HackMatrixHILOX.
 
 **Base URL** : `http://localhost:3000`
 
@@ -273,7 +273,7 @@ Informations sur l'API.
 
 ```json
 {
-  "name": "XSSHILOX API",
+  "name": "HackMatrixHILOX API",
   "version": "2.0.0",
   "theme": "Red Team Alert",
   "status": "active",
@@ -326,7 +326,7 @@ Toutes les routes protégées nécessitent un cookie de session valide.
 **Headers requis:**
 
 ```
-Cookie: xsshilox.sid=s%3A...
+Cookie: HackMatrixHILOX.sid=s%3A...
 ```
 
 Le cookie est automatiquement défini lors du login et envoyé avec `credentials: 'include'`.
@@ -340,7 +340,7 @@ Le cookie est automatiquement défini lors du login et envoyé avec `credentials
 ```json
 {
   "info": {
-    "name": "XSSHILOX API",
+    "name": "HackMatrixHILOX API",
     "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
   },
   "item": [
@@ -394,4 +394,4 @@ Toutes les erreurs suivent ce format :
 
 ---
 
-_Documentation API v2.0 - XSSHILOX_
+_Documentation API v2.0 - HackMatrixHILOX_

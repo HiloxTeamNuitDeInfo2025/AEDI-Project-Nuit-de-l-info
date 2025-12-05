@@ -1,5 +1,5 @@
-/**
- * XSSHILOX - Configuration Centralisée
+﻿/**
+ * HackMatrixHILOX - Configuration Centralisée
  * Tous les paramètres du projet en un seul endroit
  */
 
@@ -13,15 +13,15 @@ module.exports = {
 
   // Base de données
   database: {
-    path: process.env.DB_PATH || './database/xsshilox.db',
+    path: process.env.DB_PATH || './database/hackmatrixhilox.db',
     schemaPath: './database/schema.sql'
   },
 
   // Session
   session: {
-    secret: process.env.SESSION_SECRET || 'xsshilox-red-team-secret-2025',
+    secret: process.env.SESSION_SECRET || 'HackMatrixHILOX-red-team-secret-2025',
     maxAge: 24 * 60 * 60 * 1000, // 24 heures
-    cookieName: 'xsshilox.sid'
+    cookieName: 'HackMatrixHILOX.sid'
   },
 
   // CORS

@@ -81,7 +81,7 @@ export default function LoginPage() {
             <span className="ml-4 font-['Press_Start_2P'] text-xs">TERMINAL v1.0</span>
           </div>
           <h1 className="font-['Press_Start_2P'] text-2xl md:text-3xl text-glow mb-2">
-            XSSHILOX
+            HackMatrixHILOX
           </h1>
           <p className="font-['VT323'] text-xl text-[#ff3333]">
             &gt; CLASSIFIED SECURITY TRAINING SYSTEM

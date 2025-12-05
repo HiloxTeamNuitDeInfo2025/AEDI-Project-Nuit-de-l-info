@@ -1,5 +1,5 @@
-/**
- * XSSHILOX - Node.js Backend with SQLite Database
+﻿/**
+ * HackMatrixHILOX - Node.js Backend with SQLite Database
  * Educational XSS CTF Platform
  * Nuit de l'Info 2025 - AEDI Challenge
  */
@@ -57,7 +57,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Session middleware
 app.use(session({
-  secret: 'xsshilox-red-team-secret-2025',
+  secret: 'HackMatrixHILOX-red-team-secret-2025',
   resave: false,
   saveUninitialized: false,
   cookie: { 
@@ -72,7 +72,7 @@ app.use(session({
 // Root endpoint
 app.get('/', (req, res) => {
   res.json({
-    name: 'XSSHILOX API',
+    name: 'HackMatrixHILOX API',
     version: '2.0.0',
     theme: 'Red Team Alert',
     status: 'active',
@@ -304,7 +304,7 @@ io.on('connection', (socket) => {
 
 async function startServer() {
   try {
-    console.log('🚀 Starting XSSHILOX Server...');
+    console.log('🚀 Starting HackMatrixHILOX Server...');
     console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
     
     // Initialize database
@@ -325,10 +325,10 @@ async function startServer() {
     // Start server
     server.listen(PORT, () => {
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-      console.log('🎯 XSSHILOX - Red Team Edition');
+      console.log('🎯 HackMatrixHILOX - Red Team Edition');
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
       console.log(`📍 Server: http://localhost:${PORT}`);
-      console.log(`🗄️  Database: SQLite (./database/xsshilox.db)`);
+      console.log(`🗄️  Database: SQLite (./database/HackMatrixHILOX.db)`);
       console.log(`🔴 Theme: Red Alert`);
       console.log(`🎯 Challenge: AEDI - La faille la plus maligne`);
       console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
