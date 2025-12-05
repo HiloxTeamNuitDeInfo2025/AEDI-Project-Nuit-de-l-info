@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "XSS Battle Arena - Nuit de l'Info 2025",
+  title: "XSSHILOX - Nuit de l'Info 2025",
   description: "Retro terminal-style XSS CTF challenge platform. Educational cybersecurity training game.",
   keywords: ["XSS", "CTF", "Cybersecurity", "Hacking", "Training", "Nuit de l'Info"],
 };

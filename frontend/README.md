@@ -13,18 +13,23 @@
 ╚═══════════════════════════════════════════════════════════════╝
 ```
 
-## 📖 Description
+## AEDI Challenge: "La faille la plus maligne"
 
-Un jeu de **Capture The Flag (CTF)** éducatif sur les vulnérabilités **XSS (Cross-Site Scripting)** avec une esthétique **rétro terminal Matrix** des années 90. Développé pour la **Nuit de l'Info 2025** par la **Hilox Team**.
+**XSSHILOX** est une plateforme d'entraînement gamifiée au XSS (Cross-Site Scripting) avec une esthétique rétro "Red Team".
 
-### ✨ Caractéristiques
+### 🎯 Objectif
 
-- 🎨 **Design Old-School** : Interface terminal CRT avec effets scanlines et glitch
-- 🎯 **6 Niveaux de Challenges** : Du basique au CSP bypass
-- 👥 **Mode Multijoueur** : Lobby en temps réel avec Socket.IO
-- 🏆 **Système de Score** : Leaderboard et achievements
-- 📚 **Éducatif** : Apprendre les XSS de manière ludique
-- 🔒 **Sécurisé** : Environnement d'entraînement isolé
+Incarnez un hacker éthique et exploitez des vulnérabilités réalistes (Reflected XSS, Stored XSS, DOM XSS) dans un environnement simulé sécurisé.
+
+### 🚀 Fonctionnalités
+
+- **Vulnerable Browser** : Un navigateur simulé pour tester vos injections.
+- **Hacker Terminal** : Une console interactive pour soumettre vos flags.
+- **Design Immersif** : Thème "Alerte Rouge", sons rétro, effets CRT.
+- **6 Niveaux** : De l'injection basique au bypass de filtres complexes.
+
+* 📚 **Éducatif** : Apprendre les XSS de manière ludique
+* 🔒 **Sécurisé** : Environnement d'entraînement isolé
 
 ## 🛠️ Stack Technique
 

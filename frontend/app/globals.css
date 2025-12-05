@@ -1,19 +1,19 @@
 @import "tailwindcss";
 
 :root {
-  /* Matrix/Terminal Color Palette */
-  --matrix-green: #00ff41;
-  --matrix-dark: #0d0208;
-  --matrix-bg: #001a00;
-  --terminal-green: #33ff33;
-  --terminal-amber: #ffb000;
-  --terminal-red: #ff0000;
-  --scan-line: rgba(0, 255, 65, 0.05);
-  --glow: rgba(0, 255, 65, 0.5);
-
+  /* Red Team / Alert Color Palette */
+  --matrix-green: #ff0033;      /* Main Red */
+  --matrix-dark: #0d0202;       /* Reddish Dark */
+  --matrix-bg: #1a0000;         /* Dark Red BG */
+  --terminal-green: #ff3333;    /* Bright Red */
+  --terminal-amber: #ffb000;    /* Warning Orange */
+  --terminal-red: #ffffff;      /* White for contrast */
+  --scan-line: rgba(255, 0, 51, 0.05);
+  --glow: rgba(255, 0, 51, 0.5);
+  
   /* Retro Game Colors */
-  --pixel-border: #00ff41;
-  --shadow-green: rgba(0, 255, 65, 0.3);
+  --pixel-border: #ff0033;
+  --shadow-green: rgba(255, 0, 51, 0.3);
 }
 
 @theme inline {

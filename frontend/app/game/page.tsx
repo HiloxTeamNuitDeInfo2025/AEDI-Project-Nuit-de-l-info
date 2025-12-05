@@ -170,14 +170,14 @@ export default function GamePage() {
     <div className="min-h-screen p-4 flex flex-col md:flex-row gap-4 overflow-hidden">
       {/* Left Panel: Vulnerable Target */}
       <div className="flex-1 flex flex-col gap-4">
-        <div className="pixel-border bg-[#001a00] p-4">
+        <div className="pixel-border bg-[#1a0000] p-4">
           <h2 className="font-['Press_Start_2P'] text-sm text-[#ffb000] mb-2">
             TARGET SYSTEM: LEVEL {progress.step}
           </h2>
-          <p className="font-['VT323'] text-xl text-[#33ff33]">
+          <p className="font-['VT323'] text-xl text-[#ff3333]">
             {currentChallenge?.title}
           </p>
-          <p className="font-['VT323'] text-lg text-[#00ff41] mt-2">
+          <p className="font-['VT323'] text-lg text-[#ff0033] mt-2">
             {currentChallenge?.description}
           </p>
         </div>
@@ -192,12 +192,12 @@ export default function GamePage() {
 
       {/* Right Panel: Hacker Terminal */}
       <div className="flex-1 flex flex-col gap-4">
-        <div className="pixel-border bg-[#0d0208] p-4 flex-1 flex flex-col min-h-[500px]">
-          <div className="border-b-2 border-[#00ff41] pb-2 mb-4 flex justify-between items-center">
-            <h2 className="font-['Press_Start_2P'] text-sm text-[#00ff41]">
+        <div className="pixel-border bg-[#0d0202] p-4 flex-1 flex flex-col min-h-[500px]">
+          <div className="border-b-2 border-[#ff0033] pb-2 mb-4 flex justify-between items-center">
+            <h2 className="font-['Press_Start_2P'] text-sm text-[#ff0033]">
               TERMINAL v2.0
             </h2>
-            <div className="text-[#33ff33] font-['VT323']">
+            <div className="text-[#ff3333] font-['VT323']">
               SCORE: {progress.score}
             </div>
           </div>
@@ -205,7 +205,7 @@ export default function GamePage() {
           {/* Terminal Output */}
           <div className="flex-1 overflow-y-auto font-['VT323'] text-lg space-y-1 mb-4 max-h-[60vh] scrollbar-hide">
             {terminalOutput.map((line, i) => (
-              <div key={i} className={`${line.includes('ERROR') || line.includes('DENIED') ? 'text-[#ff0000]' : line.includes('SUCCESS') ? 'text-[#00ff41]' : 'text-[#33ff33]'}`}>
+              <div key={i} className={`${line.includes('ERROR') || line.includes('DENIED') ? 'text-[#ff0000]' : line.includes('SUCCESS') ? 'text-[#ff0033]' : 'text-[#ff3333]'}`}>
                 {line}
               </div>
             ))}
@@ -214,7 +214,7 @@ export default function GamePage() {
 
           {/* Command Input */}
           <div className="relative">
-            <span className="absolute left-0 top-1/2 -translate-y-1/2 font-['VT323'] text-xl text-[#00ff41]">
+            <span className="absolute left-0 top-1/2 -translate-y-1/2 font-['VT323'] text-xl text-[#ff0033]">
               user@xss-arena:~$
             </span>
             <input
@@ -225,7 +225,7 @@ export default function GamePage() {
                 soundManager.playKeystroke();
               }}
               onKeyDown={handleCommand}
-              className="w-full bg-transparent border-none text-[#00ff41] 
+              className="w-full bg-transparent border-none text-[#ff0033] 
                        font-['VT323'] text-xl pl-40 focus:outline-none"
               autoFocus
             />

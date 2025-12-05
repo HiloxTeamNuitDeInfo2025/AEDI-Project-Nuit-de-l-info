@@ -71,39 +71,39 @@ export default function LoginPage() {
       <MatrixRain />
 
       {/* Terminal Window */}
-      <div className="pixel-border bg-[#001a00] p-8 max-w-2xl w-full relative z-10">
+      <div className="pixel-border bg-[#1a0000] p-8 max-w-2xl w-full relative z-10">
         {/* Terminal Header */}
-        <div className="border-b-2 border-[#00ff41] pb-4 mb-6">
+        <div className="border-b-2 border-[#ff0033] pb-4 mb-6">
           <div className="flex items-center gap-2 mb-2">
             <div className="w-3 h-3 bg-[#ff0000] pixel-border"></div>
             <div className="w-3 h-3 bg-[#ffb000] pixel-border"></div>
-            <div className="w-3 h-3 bg-[#00ff41] pixel-border"></div>
+            <div className="w-3 h-3 bg-[#ff0033] pixel-border"></div>
             <span className="ml-4 font-['Press_Start_2P'] text-xs">TERMINAL v1.0</span>
           </div>
           <h1 className="font-['Press_Start_2P'] text-2xl md:text-3xl text-glow mb-2">
-            XSS BATTLE ARENA
+            XSSHILOX
           </h1>
-          <p className="font-['VT323'] text-xl text-[#33ff33]">
+          <p className="font-['VT323'] text-xl text-[#ff3333]">
             &gt; CLASSIFIED SECURITY TRAINING SYSTEM
           </p>
         </div>
 
         {/* Boot Sequence */}
         <div className="mb-6 font-['VT323'] text-lg space-y-1">
-          <p className="text-[#33ff33]">&gt; SYSTEM BOOT... OK</p>
-          <p className="text-[#33ff33]">&gt; LOADING SECURITY PROTOCOLS... OK</p>
-          <p className="text-[#33ff33]">&gt; INITIALIZING XSS CHALLENGE... OK</p>
+          <p className="text-[#ff3333]">&gt; SYSTEM BOOT... OK</p>
+          <p className="text-[#ff3333]">&gt; LOADING SECURITY PROTOCOLS... OK</p>
+          <p className="text-[#ff3333]">&gt; INITIALIZING XSS CHALLENGE... OK</p>
           <p className="text-[#ffb000] cursor-blink">&gt; AWAITING USER CREDENTIALS</p>
         </div>
 
         {/* Login Form */}
         <div className="space-y-6">
           <div>
-            <label className="block font-['Press_Start_2P'] text-xs mb-3 text-[#00ff41]">
+            <label className="block font-['Press_Start_2P'] text-xs mb-3 text-[#ff0033]">
               [ USERNAME ]
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 font-['VT323'] text-xl text-[#33ff33]">
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 font-['VT323'] text-xl text-[#ff3333]">
                 &gt;
               </span>
               <input
@@ -113,10 +113,10 @@ export default function LoginPage() {
                 onKeyPress={(e) => e.key === 'Enter' && handleLogin()}
                 placeholder="ENTER_YOUR_HANDLE"
                 disabled={isLoading}
-                className="w-full bg-[#0d0208] border-2 border-[#00ff41] text-[#00ff41] 
+                className="w-full bg-[#0d0202] border-2 border-[#ff0033] text-[#ff0033] 
                          font-['VT323'] text-2xl px-12 py-3 focus:outline-none 
-                         focus:shadow-[0_0_20px_rgba(0,255,65,0.5)] 
-                         placeholder:text-[#004400] uppercase
+                         focus:shadow-[0_0_20px_rgba(255,0,51,0.5)] 
+                         placeholder:text-[#440000] uppercase
                          disabled:opacity-50"
                 autoComplete="off"
               />
@@ -146,20 +146,20 @@ export default function LoginPage() {
           </div>
 
           {/* Info Box */}
-          <div className="border-2 border-[#004400] bg-[#001100] p-4">
-            <p className="font-['VT323'] text-lg text-[#33ff33] leading-relaxed">
+          <div className="border-2 border-[#440000] bg-[#110000] p-4">
+            <p className="font-['VT323'] text-lg text-[#ff3333] leading-relaxed">
               &gt; MISSION BRIEFING:<br/>
               &gt; ENTER CODENAME AND INITIALIZE SESSION<br/>
               &gt; COMPLETE XSS CHALLENGES TO ADVANCE<br/>
               &gt; WARNING: FOR EDUCATIONAL USE ONLY<br/>
-              &gt; SYSTEM STATUS: <span className="text-[#00ff41] text-glow">ONLINE</span>
+              &gt; SYSTEM STATUS: <span className="text-[#ff0033] text-glow">ONLINE</span>
             </p>
           </div>
         </div>
 
         {/* Footer */}
-        <div className="mt-8 pt-4 border-t-2 border-[#004400]">
-          <p className="font-['VT323'] text-sm text-[#33ff33] text-center">
+        <div className="mt-8 pt-4 border-t-2 border-[#440000]">
+          <p className="font-['VT323'] text-sm text-[#ff3333] text-center">
             &gt; NUIT DE L&apos;INFO 2025 - HILOX TEAM &lt;
           </p>
         </div>
@@ -168,7 +168,7 @@ export default function LoginPage() {
       {/* Ambient Glow */}
       <div className="fixed inset-0 pointer-events-none">
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 
-                      w-[600px] h-[600px] bg-[#00ff41] opacity-5 blur-[100px] rounded-full">
+                      w-[600px] h-[600px] bg-[#ff0033] opacity-5 blur-[100px] rounded-full">
         </div>
       </div>
     </div>
