@@ -212,9 +212,9 @@ export default function GamePage() {
             <div ref={terminalEndRef} />
           </div>
 
-          {/* Command Input */}
-          <div className="relative">
-            <span className="absolute left-0 top-1/2 -translate-y-1/2 font-['VT323'] text-xl text-[#ff0033]">
+          {/* NEW: Prompt + Input in one line – perfect alignment */}
+          <div className="flex items-center font-['VT323'] text-xl">
+            <span className="text-[#ff0033] mr-2 shrink-0">
               user@xss-arena:~$
             </span>
             <input
@@ -225,9 +225,10 @@ export default function GamePage() {
                 soundManager.playKeystroke();
               }}
               onKeyDown={handleCommand}
-              className="w-full bg-transparent border-none text-[#ff0033] 
-                       font-['VT323'] text-xl pl-40 focus:outline-none"
+              className="flex-1 bg-transparent border-none text-[#ff0033] outline-none"
               autoFocus
+              spellCheck={false}
+              autoComplete="off"
             />
           </div>
         </div>
