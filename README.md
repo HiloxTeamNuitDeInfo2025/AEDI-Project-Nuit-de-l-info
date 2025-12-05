@@ -1,50 +1,50 @@
-﻿[![SQLite](https://img.shields.io/badge/SQLite-3-blue)](https://www.sqlite.org/)
+[![SQLite](https://img.shields.io/badge/SQLite-3-blue)](https://www.sqlite.org/)
 
 ---
 
-## 📋 Description
+## ?? Description
 
-**HackMatrixHILOX** est une plateforme gamifiée d'apprentissage des vulnérabilités XSS (Cross-Site Scripting) avec :
+**HackMatrixHILOX** est une plateforme gamifi�e d'apprentissage des vuln�rabilit�s XSS (Cross-Site Scripting) avec :
 
-- ✅ **6 niveaux de challenges** progressifs
-- ✅ **Base de données SQLite** pour la persistance
-- ✅ **Temps réel** avec Socket.IO
-- ✅ **Design rétro "Red Team"** immersif
-- ✅ **Navigateur vulnérable** simulé
-- ✅ **Terminal hacker** interactif
+- ? **6 niveaux de challenges** progressifs
+- ? **Base de donn�es SQLite** pour la persistance
+- ? **Temps r�el** avec Socket.IO
+- ? **Design r�tro "Red Team"** immersif
+- ? **Navigateur vuln�rable** simul�
+- ? **Terminal hacker** interactif
 
 ---
 
-## 🎯 Défi AEDI : La Faille la Plus Maligne
+## ?? D�fi AEDI : La Faille la Plus Maligne
 
-Ce projet démontre la **Stored XSS** (XSS Stockée), l'une des failles les plus dangereuses :
+Ce projet d�montre la **Stored XSS** (XSS Stock�e), l'une des failles les plus dangereuses :
 
-- **Persistante** : Le code malveillant est stocké en base de données
-- **Propagation automatique** : Tous les utilisateurs sont affectés
+- **Persistante** : Le code malveillant est stock� en base de donn�es
+- **Propagation automatique** : Tous les utilisateurs sont affect�s
 - **Impact massif** : Une seule injection compromet des milliers d'utilisateurs
 
-📖 **Documentation complète** : `AEDI_DEFI_FAILLE.md`
+?? **Documentation compl�te** : `AEDI_DEFI_FAILLE.md`
 
 ---
 
-## 🚀 Installation
+## ?? Installation
 
-### Prérequis
+### Pr�requis
 
-- Node.js 18+ ([Télécharger](https://nodejs.org/))
+- Node.js 18+ ([T�l�charger](https://nodejs.org/))
 - npm ou yarn
 
-### Étapes
+### �tapes
 
 ```bash
 # 1. Cloner le projet
 git clone [URL_DU_REPO]
 cd AEDI-Project-Nuit-de-l-info
 
-# 2. Installer les dépendances backend
+# 2. Installer les d�pendances backend
 npm install
 
-# 3. Installer les dépendances frontend
+# 3. Installer les d�pendances frontend
 cd frontend
 npm install
 cd ..
@@ -52,7 +52,7 @@ cd ..
 
 ---
 
-## 🎮 Lancement
+## ?? Lancement
 
 ### Terminal 1 - Backend (Node.js + SQLite)
 
@@ -73,37 +73,37 @@ npm run dev
 
 ---
 
-## 📁 Structure du Projet
+## ?? Structure du Projet
 
 ```
 AEDI-Project-Nuit-de-l-info/
-├── database/
-│   ├── schema.sql          # Schéma SQLite
-│   ├── db.js               # Gestionnaire de base de données
-│   └── HackMatrixHILOX.db         # Base de données (auto-créée)
-├── frontend/
-│   ├── app/
-│   │   ├── page.tsx        # Page de login
-│   │   ├── lobby/          # Lobby multijoueur
-│   │   ├── game/           # Interface de jeu
-│   │   ├── victory/        # Écran de victoire
-│   │   └── components/
-│   │       ├── MatrixRain.tsx
-│   │       └── VulnerableBrowser.tsx
-│   └── package.json
-├── server.js               # Backend Node.js + Express
-├── package.json
-├── AEDI_DEFI_FAILLE.md    # Documentation du défi
-└── README.md
++-- database/
+�   +-- schema.sql          # Sch�ma SQLite
+�   +-- db.js               # Gestionnaire de base de donn�es
+�   +-- HackMatrixHILOX.db         # Base de donn�es (auto-cr��e)
++-- frontend/
+�   +-- app/
+�   �   +-- page.tsx        # Page de login
+�   �   +-- lobby/          # Lobby multijoueur
+�   �   +-- game/           # Interface de jeu
+�   �   +-- victory/        # �cran de victoire
+�   �   +-- components/
+�   �       +-- MatrixRain.tsx
+�   �       +-- VulnerableBrowser.tsx
+�   +-- package.json
++-- server.js               # Backend Node.js + Express
++-- package.json
++-- AEDI_DEFI_FAILLE.md    # Documentation du d�fi
++-- README.md
 ```
 
 ---
 
-## 🗄️ Base de Données SQLite
+## ??? Base de Donn�es SQLite
 
 ### Tables
 
-**users** : Utilisateurs enregistrés
+**users** : Utilisateurs enregistr�s
 
 ```sql
 id, username, created_at, last_login
@@ -121,7 +121,7 @@ id, user_id, created_at, expires_at
 id, user_id, current_step, total_score, completed
 ```
 
-**captured_flags** : Flags capturés
+**captured_flags** : Flags captur�s
 
 ```sql
 id, user_id, flag_text, step_number, points_earned, captured_at
@@ -137,26 +137,26 @@ username, total_score, current_step, flags_captured, completed
 
 ---
 
-## 🎯 Challenges XSS
+## ?? Challenges XSS
 
 | Level | Type            | Description                      | Points |
 | ----- | --------------- | -------------------------------- | ------ |
-| 1     | Reflected XSS   | Barre de recherche non sécurisée | 1000   |
+| 1     | Reflected XSS   | Barre de recherche non s�curis�e | 1000   |
 | 2     | Cookie Stealing | Vol de cookies de session        | 990    |
-| 3     | **Stored XSS**  | Commentaires persistants ⭐      | 980    |
+| 3     | **Stored XSS**  | Commentaires persistants ?      | 980    |
 | 4     | DOM-Based XSS   | Manipulation client-side         | 970    |
 | 5     | CSP Bypass      | Contournement de politique       | 960    |
 | 6     | Filter Evasion  | Bypass de filtres WAF            | 950    |
 
 ---
 
-## 📡 API Endpoints
+## ?? API Endpoints
 
 ### Authentification
 
 - `POST /api/login` - Connexion
 - `GET /api/profile` - Profil utilisateur
-- `POST /api/logout` - Déconnexion
+- `POST /api/logout` - D�connexion
 
 ### Jeu
 
@@ -164,16 +164,16 @@ username, total_score, current_step, flags_captured, completed
 - `GET /api/lobby` - Liste des joueurs
 - `GET /api/leaderboard` - Classement
 
-### Système
+### Syst�me
 
 - `GET /` - Info API
-- `GET /health` - Santé du serveur
+- `GET /health` - Sant� du serveur
 
 ---
 
-## 🎨 Design
+## ?? Design
 
-### Thème "Red Team Alert"
+### Th�me "Red Team Alert"
 
 - **Couleurs** : Rouge (#ff0033), Orange (#ffb000)
 - **Polices** : VT323, Press Start 2P, Share Tech Mono
@@ -181,21 +181,21 @@ username, total_score, current_step, flags_captured, completed
 
 ### Composants
 
-- **MatrixRain** : Effet de pluie de caractères
-- **VulnerableBrowser** : Navigateur simulé avec failles
+- **MatrixRain** : Effet de pluie de caract�res
+- **VulnerableBrowser** : Navigateur simul� avec failles
 - **Terminal** : Console interactive pour hacker
 
 ---
 
-## 🛡️ Protection Contre les XSS
+## ??? Protection Contre les XSS
 
-### 1. Échappement (Escaping)
+### 1. �chappement (Escaping)
 
 ```jsx
-// ❌ Vulnérable
+// ? Vuln�rable
 <div dangerouslySetInnerHTML={{ __html: userInput }} />
 
-// ✅ Sécurisé
+// ? S�curis�
 <div>{userInput}</div>
 ```
 
@@ -214,7 +214,7 @@ const clean = DOMPurify.sanitize(dirty);
 
 ---
 
-## 🧪 Tests
+## ?? Tests
 
 ### Tester l'API avec cURL
 
@@ -244,19 +244,19 @@ curl http://localhost:3000/api/leaderboard
 
 ---
 
-## 🐛 Dépannage
+## ?? D�pannage
 
-### Port 3000 déjà utilisé
+### Port 3000 d�j� utilis�
 
 ```powershell
 Get-Process -Name node | Stop-Process -Force
 ```
 
-### Base de données corrompue
+### Base de donn�es corrompue
 
 ```bash
 rm database/HackMatrixHILOX.db
-npm start  # Recrée automatiquement
+npm start  # Recr�e automatiquement
 ```
 
 ### Erreur SQLite
@@ -267,33 +267,33 @@ npm install sqlite3 --build-from-source
 
 ---
 
-## 📊 Statistiques
+## ?? Statistiques
 
 - **Lignes de code** : ~2500
 - **Technologies** : 8 (Node.js, Express, SQLite, Socket.IO, Next.js, React, Tailwind, TypeScript)
 - **Challenges** : 6 niveaux
-- **Temps de développement** : 1 nuit 🌙
+- **Temps de d�veloppement** : 1 nuit ??
 
 ---
 
-## 👥 Équipe
+## ?? �quipe
 
 **Hilox Team** - Nuit de l'Info 2025
 
 ---
 
-## ⚠️ Avertissement
+## ?? Avertissement
 
-Ce projet est **uniquement à des fins éducatives**. Les techniques démontrées ne doivent **jamais** être utilisées sur des systèmes réels sans autorisation. L'utilisation malveillante est **illégale**.
+Ce projet est **uniquement � des fins �ducatives**. Les techniques d�montr�es ne doivent **jamais** �tre utilis�es sur des syst�mes r�els sans autorisation. L'utilisation malveillante est **ill�gale**.
 
-**Apprenez pour protéger, pas pour attaquer.**
-
----
-
-## 📜 Licence
-
-MIT License - Libre d'utilisation pour l'éducation
+**Apprenez pour prot�ger, pas pour attaquer.**
 
 ---
 
-_Développé avec ❤️ et ☕ pour la Nuit de l'Info 2025_
+## ?? Licence
+
+MIT License - Libre d'utilisation pour l'�ducation
+
+---
+
+_D�velopp� avec ?? et ? pour la Nuit de l'Info 2025_

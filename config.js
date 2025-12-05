@@ -1,6 +1,6 @@
-ï»¿/**
- * HackMatrixHILOX - Configuration CentralisÃ©e
- * Tous les paramÃ¨tres du projet en un seul endroit
+/**
+ * HackMatrixHILOX - Configuration Centralisée
+ * Tous les paramètres du projet en un seul endroit
  */
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
     environment: process.env.NODE_ENV || 'development'
   },
 
-  // Base de donnÃ©es
+  // Base de données
   database: {
     path: process.env.DB_PATH || './database/hackmatrixhilox.db',
     schemaPath: './database/schema.sql'

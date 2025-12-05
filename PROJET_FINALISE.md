@@ -1,56 +1,56 @@
-﻿# ✅ HackMatrixHILOX - Projet Finalisé et Organisé
+# ? HackMatrixHILOX - Projet Finalis� et Organis�
 
-## 🎉 Résumé de la Réorganisation
+## ?? R�sum� de la R�organisation
 
-Le projet **HackMatrixHILOX** a été complètement réorganisé pour une structure professionnelle et maintenable.
+Le projet **HackMatrixHILOX** a �t� compl�tement r�organis� pour une structure professionnelle et maintenable.
 
 ---
 
-## 📁 Nouvelle Structure
+## ?? Nouvelle Structure
 
 ```
 HackMatrixHILOX/
-│
-├── 📂 database/              # Base de données SQLite
-│   ├── db.js                 # Gestionnaire DB
-│   ├── schema.sql            # Schéma SQL
-│   └── HackMatrixHILOX.db           # DB (auto-créée)
-│
-├── 📂 frontend/              # Application Next.js
-│   ├── app/                  # Pages et composants
-│   ├── public/               # Assets statiques
-│   └── package.json
-│
-├── 📂 docs/                  # Documentation complète
-│   ├── INDEX.md              # Index documentation
-│   ├── ARCHITECTURE.md       # Architecture système
-│   ├── API.md                # Documentation API
-│   ├── QUICKSTART.md         # Guide rapide
-│   ├── AEDI_DEFI_FAILLE.md  # Doc défi AEDI
-│   └── DEFI_AEDI_RESUME.md  # Résumé projet
-│
-├── server.js                 # Backend Node.js
-├── config.js                 # Configuration centralisée
-├── start.ps1                 # Script de démarrage
-├── package.json              # Dépendances backend
-├── README.md                 # Documentation principale
-└── .gitignore                # Fichiers ignorés
+�
++-- ?? database/              # Base de donn�es SQLite
+�   +-- db.js                 # Gestionnaire DB
+�   +-- schema.sql            # Sch�ma SQL
+�   +-- HackMatrixHILOX.db           # DB (auto-cr��e)
+�
++-- ?? frontend/              # Application Next.js
+�   +-- app/                  # Pages et composants
+�   +-- public/               # Assets statiques
+�   +-- package.json
+�
++-- ?? docs/                  # Documentation compl�te
+�   +-- INDEX.md              # Index documentation
+�   +-- ARCHITECTURE.md       # Architecture syst�me
+�   +-- API.md                # Documentation API
+�   +-- QUICKSTART.md         # Guide rapide
+�   +-- AEDI_DEFI_FAILLE.md  # Doc d�fi AEDI
+�   +-- DEFI_AEDI_RESUME.md  # R�sum� projet
+�
++-- server.js                 # Backend Node.js
++-- config.js                 # Configuration centralis�e
++-- start.ps1                 # Script de d�marrage
++-- package.json              # D�pendances backend
++-- README.md                 # Documentation principale
++-- .gitignore                # Fichiers ignor�s
 ```
 
 ---
 
-## 🚀 Démarrage Simplifié
+## ?? D�marrage Simplifi�
 
-### Option 1 : Script Automatique (Recommandé)
+### Option 1 : Script Automatique (Recommand�)
 
 ```powershell
 .\start.ps1
 ```
 
-✅ Vérifie les dépendances
-✅ Installe si nécessaire
-✅ Démarre backend + frontend
-✅ Affiche les logs en temps réel
+? V�rifie les d�pendances
+? Installe si n�cessaire
+? D�marre backend + frontend
+? Affiche les logs en temps r�el
 
 ### Option 2 : Manuel
 
@@ -65,22 +65,22 @@ npm run dev
 
 ---
 
-## 📚 Documentation Organisée
+## ?? Documentation Organis�e
 
 Toute la documentation est maintenant dans `docs/` :
 
 | Fichier                 | Description               |
 | ----------------------- | ------------------------- |
-| **INDEX.md**            | Table des matières        |
-| **QUICKSTART.md**       | Guide de démarrage rapide |
+| **INDEX.md**            | Table des mati�res        |
+| **QUICKSTART.md**       | Guide de d�marrage rapide |
 | **ARCHITECTURE.md**     | Architecture technique    |
 | **API.md**              | Documentation API REST    |
 | **AEDI_DEFI_FAILLE.md** | Explication de la faille  |
-| **DEFI_AEDI_RESUME.md** | Résumé complet            |
+| **DEFI_AEDI_RESUME.md** | R�sum� complet            |
 
 ---
 
-## 🔧 Configuration Centralisée
+## ?? Configuration Centralis�e
 
 Fichier `config.js` :
 
@@ -95,46 +95,46 @@ module.exports = {
 
 ---
 
-## 🗄️ Base de Données SQLite
+## ??? Base de Donn�es SQLite
 
-### Tables Créées Automatiquement
+### Tables Cr��es Automatiquement
 
-- ✅ `users` - Utilisateurs
-- ✅ `sessions` - Sessions actives
-- ✅ `progress` - Progression des joueurs
-- ✅ `captured_flags` - Flags capturés
+- ? `users` - Utilisateurs
+- ? `sessions` - Sessions actives
+- ? `progress` - Progression des joueurs
+- ? `captured_flags` - Flags captur�s
 
 ### Vue
 
-- ✅ `leaderboard` - Classement automatique
+- ? `leaderboard` - Classement automatique
 
 ---
 
-## 🎯 Fonctionnalités Complètes
+## ?? Fonctionnalit�s Compl�tes
 
 ### Backend
 
-- ✅ API REST complète (7 endpoints)
-- ✅ Base de données SQLite persistante
-- ✅ Sessions avec cookies HTTPOnly
-- ✅ Socket.IO pour le temps réel
-- ✅ Nettoyage automatique des sessions
-- ✅ Validation des flags
-- ✅ Leaderboard dynamique
+- ? API REST compl�te (7 endpoints)
+- ? Base de donn�es SQLite persistante
+- ? Sessions avec cookies HTTPOnly
+- ? Socket.IO pour le temps r�el
+- ? Nettoyage automatique des sessions
+- ? Validation des flags
+- ? Leaderboard dynamique
 
 ### Frontend
 
-- ✅ 6 niveaux XSS fonctionnels
-- ✅ Navigateur vulnérable simulé
-- ✅ Terminal hacker interactif
-- ✅ Effets sonores (Web Audio API)
-- ✅ Design Red Team immersif
-- ✅ Animations Matrix Rain
-- ✅ Page de victoire
+- ? 6 niveaux XSS fonctionnels
+- ? Navigateur vuln�rable simul�
+- ? Terminal hacker interactif
+- ? Effets sonores (Web Audio API)
+- ? Design Red Team immersif
+- ? Animations Matrix Rain
+- ? Page de victoire
 
 ---
 
-## 🎨 Design "Red Team"
+## ?? Design "Red Team"
 
 ### Palette de Couleurs
 
@@ -146,14 +146,14 @@ module.exports = {
 ### Polices
 
 - **VT323** : Terminal monospace
-- **Press Start 2P** : Titres rétro
+- **Press Start 2P** : Titres r�tro
 - **Share Tech Mono** : Code
 
 ---
 
-## 📊 Métriques du Projet
+## ?? M�triques du Projet
 
-| Métrique           | Valeur     |
+| M�trique           | Valeur     |
 | ------------------ | ---------- |
 | **Lignes de code** | ~3000      |
 | **Fichiers**       | 25+        |
@@ -164,24 +164,24 @@ module.exports = {
 
 ---
 
-## ✅ Checklist Finale
+## ? Checklist Finale
 
 ### Backend
 
 - [x] Serveur Express fonctionnel
-- [x] Base de données SQLite
-- [x] API REST complète
-- [x] Socket.IO configuré
-- [x] Sessions sécurisées
+- [x] Base de donn�es SQLite
+- [x] API REST compl�te
+- [x] Socket.IO configur�
+- [x] Sessions s�curis�es
 - [x] Validation des flags
 - [x] Leaderboard
 
 ### Frontend
 
-- [x] Next.js 15 configuré
+- [x] Next.js 15 configur�
 - [x] Tailwind CSS v4
 - [x] 6 niveaux XSS
-- [x] Navigateur vulnérable
+- [x] Navigateur vuln�rable
 - [x] Terminal interactif
 - [x] Effets sonores
 - [x] Design Red Team
@@ -192,48 +192,48 @@ module.exports = {
 - [x] Guide rapide
 - [x] Architecture
 - [x] API
-- [x] Défi AEDI
+- [x] D�fi AEDI
 - [x] Index documentation
 
 ### Scripts
 
-- [x] start.ps1 (démarrage auto)
+- [x] start.ps1 (d�marrage auto)
 - [x] package.json (scripts npm)
 - [x] config.js (configuration)
 
 ---
 
-## 🎯 Prêt pour le Défi AEDI
+## ?? Pr�t pour le D�fi AEDI
 
-Le projet est **100% fonctionnel** et prêt pour la présentation :
+Le projet est **100% fonctionnel** et pr�t pour la pr�sentation :
 
-✅ **Faille démontrée** : Stored XSS (Level 3)
-✅ **Exploitation** : Guide pas à pas
-✅ **Protection** : Solutions détaillées
-✅ **Documentation** : Complète et professionnelle
-✅ **Code** : Propre et commenté
-✅ **Design** : Immersif et original
-
----
-
-## 🚀 Prochaines Étapes
-
-1. **Tester** : Vérifier tous les niveaux
-2. **Déployer** : (Optionnel) Heroku/Vercel
-3. **Présenter** : Préparer la démo
-4. **Gagner** : La carte cadeau Fnac ! 🎁
+? **Faille d�montr�e** : Stored XSS (Level 3)
+? **Exploitation** : Guide pas � pas
+? **Protection** : Solutions d�taill�es
+? **Documentation** : Compl�te et professionnelle
+? **Code** : Propre et comment�
+? **Design** : Immersif et original
 
 ---
 
-## 📞 Support
+## ?? Prochaines �tapes
 
-- 📖 Documentation : `docs/INDEX.md`
-- 🐛 Issues : GitHub
-- 💬 Contact : Équipe Hilox
+1. **Tester** : V�rifier tous les niveaux
+2. **D�ployer** : (Optionnel) Heroku/Vercel
+3. **Pr�senter** : Pr�parer la d�mo
+4. **Gagner** : La carte cadeau Fnac ! ??
 
 ---
 
-**🎉 Félicitations ! Le projet HackMatrixHILOX est maintenant professionnel, organisé et prêt à impressionner le jury !**
+## ?? Support
 
-_Équipe Hilox - Nuit de l'Info 2025_
+- ?? Documentation : `docs/INDEX.md`
+- ?? Issues : GitHub
+- ?? Contact : �quipe Hilox
+
+---
+
+**?? F�licitations ! Le projet HackMatrixHILOX est maintenant professionnel, organis� et pr�t � impressionner le jury !**
+
+_�quipe Hilox - Nuit de l'Info 2025_
 _AEDI Challenge - "La faille la plus maligne"_

@@ -1,71 +1,71 @@
-﻿# HackMatrixHILOX - Startup Script
-# Démarre automatiquement le backend et le frontend
+# HackMatrixHILOX - Startup Script
+# D�marre automatiquement le backend et le frontend
 
 Write-Host ""
-Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Red
-Write-Host "    🚨 HackMatrixHILOX - Red Team Edition 🚨    " -ForegroundColor Red
-Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Red
+Write-Host "????????????????????????????????????????" -ForegroundColor Red
+Write-Host "    ?? HackMatrixHILOX - Red Team Edition ??    " -ForegroundColor Red
+Write-Host "????????????????????????????????????????" -ForegroundColor Red
 Write-Host ""
-Write-Host "📦 Vérification des dépendances..." -ForegroundColor Yellow
+Write-Host "?? V�rification des d�pendances..." -ForegroundColor Yellow
 Write-Host ""
 
-# Vérifier Node.js
+# V�rifier Node.js
 try {
     $nodeVersion = node --version
-    Write-Host "✅ Node.js: $nodeVersion" -ForegroundColor Green
+    Write-Host "? Node.js: $nodeVersion" -ForegroundColor Green
 }
 catch {
-    Write-Host "❌ Node.js non trouvé! Installez Node.js 18+" -ForegroundColor Red
+    Write-Host "? Node.js non trouv�! Installez Node.js 18+" -ForegroundColor Red
     exit 1
 }
 
-# Installer les dépendances backend si nécessaire
+# Installer les d�pendances backend si n�cessaire
 if (-Not (Test-Path "node_modules")) {
-    Write-Host "📥 Installation des dépendances backend..." -ForegroundColor Yellow
+    Write-Host "?? Installation des d�pendances backend..." -ForegroundColor Yellow
     npm install
 }
 
-# Installer les dépendances frontend si nécessaire
+# Installer les d�pendances frontend si n�cessaire
 if (-Not (Test-Path "frontend/node_modules")) {
-    Write-Host "📥 Installation des dépendances frontend..." -ForegroundColor Yellow
+    Write-Host "?? Installation des d�pendances frontend..." -ForegroundColor Yellow
     Set-Location frontend
     npm install
     Set-Location ..
 }
 
 Write-Host ""
-Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Red
-Write-Host "🚀 Démarrage des serveurs..." -ForegroundColor Green
-Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Red
+Write-Host "????????????????????????????????????????" -ForegroundColor Red
+Write-Host "?? D�marrage des serveurs..." -ForegroundColor Green
+Write-Host "????????????????????????????????????????" -ForegroundColor Red
 Write-Host ""
-Write-Host "📍 Backend:  http://localhost:3000" -ForegroundColor Cyan
-Write-Host "📍 Frontend: http://localhost:3001" -ForegroundColor Cyan
+Write-Host "?? Backend:  http://localhost:3000" -ForegroundColor Cyan
+Write-Host "?? Frontend: http://localhost:3001" -ForegroundColor Cyan
 Write-Host ""
-Write-Host "💡 Appuyez sur Ctrl+C pour arrêter les serveurs" -ForegroundColor Yellow
+Write-Host "?? Appuyez sur Ctrl+C pour arr�ter les serveurs" -ForegroundColor Yellow
 Write-Host ""
 
-# Démarrer le backend en arrière-plan
+# D�marrer le backend en arri�re-plan
 $backendJob = Start-Job -ScriptBlock {
     Set-Location $using:PWD
     npm start
 }
 
-# Attendre 3 secondes pour que le backend démarre
+# Attendre 3 secondes pour que le backend d�marre
 Start-Sleep -Seconds 3
 
-# Démarrer le frontend en arrière-plan
+# D�marrer le frontend en arri�re-plan
 $frontendJob = Start-Job -ScriptBlock {
     Set-Location $using:PWD\frontend
     npm run dev
 }
 
-Write-Host "✅ Backend démarré (Job ID: $($backendJob.Id))" -ForegroundColor Green
-Write-Host "✅ Frontend démarré (Job ID: $($frontendJob.Id))" -ForegroundColor Green
+Write-Host "? Backend d�marr� (Job ID: $($backendJob.Id))" -ForegroundColor Green
+Write-Host "? Frontend d�marr� (Job ID: $($frontendJob.Id))" -ForegroundColor Green
 Write-Host ""
-Write-Host "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━" -ForegroundColor Red
+Write-Host "????????????????????????????????????????" -ForegroundColor Red
 Write-Host ""
 
-# Afficher les logs en temps réel
+# Afficher les logs en temps r�el
 try {
     while ($true) {
         $backendOutput = Receive-Job -Job $backendJob -Keep
@@ -87,8 +87,8 @@ try {
 finally {
     # Cleanup on exit
     Write-Host ""
-    Write-Host "🛑 Arrêt des serveurs..." -ForegroundColor Yellow
+    Write-Host "?? Arr�t des serveurs..." -ForegroundColor Yellow
     Stop-Job -Job $backendJob, $frontendJob
     Remove-Job -Job $backendJob, $frontendJob
-    Write-Host "✅ Serveurs arrêtés" -ForegroundColor Green
+    Write-Host "? Serveurs arr�t�s" -ForegroundColor Green
 }

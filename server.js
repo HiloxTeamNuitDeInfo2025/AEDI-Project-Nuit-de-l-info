@@ -1,4 +1,4 @@
-﻿/**
+/**
  * HackMatrixHILOX - Node.js Backend with SQLite Database
  * Educational XSS CTF Platform
  * Nuit de l'Info 2025 - AEDI Challenge
@@ -287,7 +287,7 @@ app.post('/api/logout', (req, res) => {
 /* ---------- Socket.IO for Real-time Features ---------- */
 
 io.on('connection', (socket) => {
-  console.log('🔌 Client connected:', socket.id);
+  console.log('?? Client connected:', socket.id);
 
   socket.on('join-lobby', async (data) => {
     socket.join('lobby');
@@ -296,7 +296,7 @@ io.on('connection', (socket) => {
   });
 
   socket.on('disconnect', () => {
-    console.log('🔌 Client disconnected:', socket.id);
+    console.log('?? Client disconnected:', socket.id);
   });
 });
 
@@ -304,8 +304,8 @@ io.on('connection', (socket) => {
 
 async function startServer() {
   try {
-    console.log('🚀 Starting HackMatrixHILOX Server...');
-    console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+    console.log('?? Starting HackMatrixHILOX Server...');
+    console.log('????????????????????????????????????????');
     
     // Initialize database
     await db.initialize();
@@ -315,7 +315,7 @@ async function startServer() {
       try {
         const deleted = await db.cleanupExpiredSessions();
         if (deleted > 0) {
-          console.log(`🧹 Cleaned up ${deleted} expired sessions`);
+          console.log(`?? Cleaned up ${deleted} expired sessions`);
         }
       } catch (error) {
         console.error('Session cleanup error:', error);
@@ -324,27 +324,27 @@ async function startServer() {
     
     // Start server
     server.listen(PORT, () => {
-      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-      console.log('🎯 HackMatrixHILOX - Red Team Edition');
-      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
-      console.log(`📍 Server: http://localhost:${PORT}`);
-      console.log(`🗄️  Database: SQLite (./database/HackMatrixHILOX.db)`);
-      console.log(`🔴 Theme: Red Alert`);
-      console.log(`🎯 Challenge: AEDI - La faille la plus maligne`);
-      console.log('━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━');
+      console.log('????????????????????????????????????????');
+      console.log('?? HackMatrixHILOX - Red Team Edition');
+      console.log('????????????????????????????????????????');
+      console.log(`?? Server: http://localhost:${PORT}`);
+      console.log(`???  Database: SQLite (./database/HackMatrixHILOX.db)`);
+      console.log(`?? Theme: Red Alert`);
+      console.log(`?? Challenge: AEDI - La faille la plus maligne`);
+      console.log('????????????????????????????????????????');
     });
   } catch (error) {
-    console.error('❌ Failed to start server:', error);
+    console.error('? Failed to start server:', error);
     process.exit(1);
   }
 }
 
 // Graceful shutdown
 process.on('SIGINT', () => {
-  console.log('\n🛑 Shutting down gracefully...');
+  console.log('\n?? Shutting down gracefully...');
   db.close();
   server.close(() => {
-    console.log('👋 Server stopped');
+    console.log('?? Server stopped');
     process.exit(0);
   });
 });

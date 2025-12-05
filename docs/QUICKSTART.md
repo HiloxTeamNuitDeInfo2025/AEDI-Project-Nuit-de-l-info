@@ -74,7 +74,7 @@ Une fois les deux serveurs lancés :
 
 1. Ouvrez votre navigateur
 2. Allez sur **http://localhost:3001**
-3. Profitez du XSS Battle Arena ! 🎮
+3. Profitez du HackMatrixHILOX ! 🎮
 
 ## 🐛 Dépannage
 

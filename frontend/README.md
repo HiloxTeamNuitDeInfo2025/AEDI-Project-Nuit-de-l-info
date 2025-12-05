@@ -1,37 +1,37 @@
-﻿# 🎮 XSS BATTLE ARENA - Nuit de l'Info 2025
+# ?? XSS BATTLE ARENA - Nuit de l'Info 2025
 
 ```
-╔═══════════════════════════════════════════════════════════════╗
-║  ██╗  ██╗███████╗███████╗    ██████╗  █████╗ ████████╗████████╗██╗     ███████╗
-║  ╚██╗██╔╝██╔════╝██╔════╝    ██╔══██╗██╔══██╗╚══██╔══╝╚══██╔══╝██║     ██╔════╝
-║   ╚███╔╝ ███████╗███████╗    ██████╔╝███████║   ██║      ██║   ██║     █████╗
-║   ██╔██╗ ╚════██║╚════██║    ██╔══██╗██╔══██║   ██║      ██║   ██║     ██╔══╝
-║  ██╔╝ ██╗███████║███████║    ██████╔╝██║  ██║   ██║      ██║   ███████╗███████╗
-║  ╚═╝  ╚═╝╚══════╝╚══════╝    ╚═════╝ ╚═╝  ╚═╝   ╚═╝      ╚═╝   ╚══════╝╚══════╝
-║
-║                    🏆 RETRO TERMINAL XSS CTF CHALLENGE 🏆
-╚═══════════════════════════════════════════════════════════════╝
++---------------------------------------------------------------+
+�  ��+  ��+�������+�������+    ������+  �����+ ��������+��������+��+     �������+
+�  +��+��++��+----+��+----+    ��+--��+��+--��++--��+--++--��+--+���     ��+----+
+�   +���++ �������+�������+    ������++��������   ���      ���   ���     �����+
+�   ��+��+ +----���+----���    ��+--��+��+--���   ���      ���   ���     ��+--+
+�  ��++ ��+����������������    ������++���  ���   ���      ���   �������+�������+
+�  +-+  +-++------++------+    +-----+ +-+  +-+   +-+      +-+   +------++------+
+�
+�                    ?? RETRO TERMINAL XSS CTF CHALLENGE ??
++---------------------------------------------------------------+
 ```
 
 ## AEDI Challenge: "La faille la plus maligne"
 
-**HackMatrixHILOX** est une plateforme d'entraînement gamifiée au XSS (Cross-Site Scripting) avec une esthétique rétro "Red Team".
+**HackMatrixHILOX** est une plateforme d'entra�nement gamifi�e au XSS (Cross-Site Scripting) avec une esth�tique r�tro "Red Team".
 
-### 🎯 Objectif
+### ?? Objectif
 
-Incarnez un hacker éthique et exploitez des vulnérabilités réalistes (Reflected XSS, Stored XSS, DOM XSS) dans un environnement simulé sécurisé.
+Incarnez un hacker �thique et exploitez des vuln�rabilit�s r�alistes (Reflected XSS, Stored XSS, DOM XSS) dans un environnement simul� s�curis�.
 
-### 🚀 Fonctionnalités
+### ?? Fonctionnalit�s
 
-- **Vulnerable Browser** : Un navigateur simulé pour tester vos injections.
+- **Vulnerable Browser** : Un navigateur simul� pour tester vos injections.
 - **Hacker Terminal** : Une console interactive pour soumettre vos flags.
-- **Design Immersif** : Thème "Alerte Rouge", sons rétro, effets CRT.
+- **Design Immersif** : Th�me "Alerte Rouge", sons r�tro, effets CRT.
 - **6 Niveaux** : De l'injection basique au bypass de filtres complexes.
 
-* 📚 **Éducatif** : Apprendre les XSS de manière ludique
-* 🔒 **Sécurisé** : Environnement d'entraînement isolé
+* ?? **�ducatif** : Apprendre les XSS de mani�re ludique
+* ?? **S�curis�** : Environnement d'entra�nement isol�
 
-## 🛠️ Stack Technique
+## ??? Stack Technique
 
 ### Frontend (Next.js)
 
@@ -49,9 +49,9 @@ Incarnez un hacker éthique et exploitez des vulnérabilités réalistes (Reflec
 - **Storage** : File-based JSON (demo)
 - **Session** : Express Session
 
-## 🚀 Installation & Démarrage
+## ?? Installation & D�marrage
 
-### Prérequis
+### Pr�requis
 
 - Node.js 18+
 - npm ou yarn
@@ -63,7 +63,7 @@ git clone <repo-url>
 cd AEDI-Project-Nuit-de-l-info
 ```
 
-### 2. Installer les dépendances
+### 2. Installer les d�pendances
 
 #### Backend
 
@@ -93,26 +93,26 @@ cd frontend
 npm run dev
 ```
 
-### 4. Accéder à l'application
+### 4. Acc�der � l'application
 
 Ouvrez votre navigateur sur : **http://localhost:3001**
 
-## 🎮 Comment Jouer
+## ?? Comment Jouer
 
-### 1️⃣ Login
+### 1?? Login
 
 - Entrez votre nom d'utilisateur
-- Ou utilisez le mode DEMO pour un nom aléatoire
+- Ou utilisez le mode DEMO pour un nom al�atoire
 
-### 2️⃣ Lobby
+### 2?? Lobby
 
 - Attendez d'autres joueurs (optionnel)
 - Cliquez sur "SET READY"
 - Le host lance la mission avec "LAUNCH MISSION"
 
-### 3️⃣ Challenges
+### 3?? Challenges
 
-Complétez les 6 niveaux de XSS :
+Compl�tez les 6 niveaux de XSS :
 
 1. **Basic Injection** - Script tag simple
 2. **Reflected XSS** - Cookie reflection
@@ -121,23 +121,23 @@ Complétez les 6 niveaux de XSS :
 5. **CSP Bypass** - Contournement CSP
 6. **Final Boss** - Combinaison de techniques
 
-### 4️⃣ Victoire
+### 4?? Victoire
 
 - Consultez vos statistiques
 - Rejouer ou retourner au lobby
 
-## 🎨 Design Features
+## ?? Design Features
 
 ### Effets Visuels
 
-- ✅ **CRT Screen Effect** : Scanlines animées
-- ✅ **Flicker Animation** : Scintillement d'écran
-- ✅ **Text Glow** : Effet néon Matrix
-- ✅ **Pixel Borders** : Bordures rétro
-- ✅ **Glitch Effect** : Distorsion visuelle
-- ✅ **Terminal Cursor** : Curseur clignotant
-- ✅ **Retro Buttons** : Boutons 3D old-school
-- ✅ **Custom Scrollbar** : Scrollbar Matrix
+- ? **CRT Screen Effect** : Scanlines anim�es
+- ? **Flicker Animation** : Scintillement d'�cran
+- ? **Text Glow** : Effet n�on Matrix
+- ? **Pixel Borders** : Bordures r�tro
+- ? **Glitch Effect** : Distorsion visuelle
+- ? **Terminal Cursor** : Curseur clignotant
+- ? **Retro Buttons** : Boutons 3D old-school
+- ? **Custom Scrollbar** : Scrollbar Matrix
 
 ### Palette de Couleurs
 
@@ -149,27 +149,27 @@ Complétez les 6 niveaux de XSS :
 --terminal-red: #ff0000    /* Rouge alerte */
 ```
 
-## 📁 Structure du Projet
+## ?? Structure du Projet
 
 ```
 AEDI-Project-Nuit-de-l-info/
-├── frontend/                 # Application Next.js
-│   ├── app/
-│   │   ├── page.tsx         # Page login
-│   │   ├── lobby/           # Page lobby
-│   │   ├── game/            # Page jeu
-│   │   ├── victory/         # Page victoire
-│   │   ├── layout.tsx       # Layout principal
-│   │   └── globals.css      # Styles globaux
-│   ├── package.json
-│   └── tsconfig.json
-├── public/                   # Anciens fichiers HTML (legacy)
-├── server.js                 # Serveur Express + Socket.IO
-├── data.json                 # Stockage des données
-└── package.json              # Dépendances backend
++-- frontend/                 # Application Next.js
+�   +-- app/
+�   �   +-- page.tsx         # Page login
+�   �   +-- lobby/           # Page lobby
+�   �   +-- game/            # Page jeu
+�   �   +-- victory/         # Page victoire
+�   �   +-- layout.tsx       # Layout principal
+�   �   +-- globals.css      # Styles globaux
+�   +-- package.json
+�   +-- tsconfig.json
++-- public/                   # Anciens fichiers HTML (legacy)
++-- server.js                 # Serveur Express + Socket.IO
++-- data.json                 # Stockage des donn�es
++-- package.json              # D�pendances backend
 ```
 
-## 🔧 Configuration
+## ?? Configuration
 
 ### Port du Backend
 
@@ -195,9 +195,9 @@ Modifier dans les pages frontend :
 const socket = io("http://localhost:3000");
 ```
 
-## 🎯 Flags des Challenges
+## ?? Flags des Challenges
 
-Les flags sont définis dans `server.js` et `frontend/app/game/page.tsx` :
+Les flags sont d�finis dans `server.js` et `frontend/app/game/page.tsx` :
 
 1. `FLAG{STEP1_DEMO}`
 2. `FLAG{STEP2_REFLECTED_COOKIE}`
@@ -206,21 +206,21 @@ Les flags sont définis dans `server.js` et `frontend/app/game/page.tsx` :
 5. `FLAG{STEP5_CSP_BYPASS}`
 6. `FLAG{STEP6_FINAL}`
 
-## 🚨 Avertissement
+## ?? Avertissement
 
-⚠️ **POUR USAGE ÉDUCATIF UNIQUEMENT**
+?? **POUR USAGE �DUCATIF UNIQUEMENT**
 
-Ce projet est conçu pour l'apprentissage des vulnérabilités XSS dans un environnement contrôlé. Ne jamais utiliser ces techniques sur des systèmes réels sans autorisation.
+Ce projet est con�u pour l'apprentissage des vuln�rabilit�s XSS dans un environnement contr�l�. Ne jamais utiliser ces techniques sur des syst�mes r�els sans autorisation.
 
-## 👥 Équipe
+## ?? �quipe
 
 **Hilox Team** - Nuit de l'Info 2025
 
-## 📄 Licence
+## ?? Licence
 
-MIT License - Projet éducatif
+MIT License - Projet �ducatif
 
-## 🎓 Ressources
+## ?? Ressources
 
 - [OWASP XSS Guide](https://owasp.org/www-community/attacks/xss/)
 - [PortSwigger XSS](https://portswigger.net/web-security/cross-site-scripting)
